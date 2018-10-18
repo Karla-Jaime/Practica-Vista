@@ -81,8 +81,16 @@ namespace PracticaVista
 
         private void lstMaterias_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            lblClaveMateria.Text = alumnos[lstAlumnos.SelectedIndex].Materias[lstMaterias.SelectedIndex].Clave;
-            lblNombreMateria.Text = alumnos[lstAlumnos.SelectedIndex].Materias[lstMaterias.SelectedIndex].Nombre;
+            if (lstMaterias.SelectedIndex != -1)//Para evitar el error en el cambio de alumno
+            {
+                lblClaveMateria.Text = alumnos[lstAlumnos.SelectedIndex].Materias[lstMaterias.SelectedIndex].Clave;
+                lblNombreMateria.Text = alumnos[lstAlumnos.SelectedIndex].Materias[lstMaterias.SelectedIndex].Nombre;
+            }
+            else
+            {
+                lblNombreMateria.Text = "";
+                lblClaveMateria.Text = "";
+            }
         }
     }
 }
